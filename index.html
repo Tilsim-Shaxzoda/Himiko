@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Glassmorphism Login Page</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="leaves">
+            <div class="set">
+                <div><img src="leaf_01.png"></div>
+                <div><img src="leaf_02.png"></div>
+                <div><img src="leaf_03.png"></div>
+                <div><img src="leaf_04.png"></div>
+                <div><img src="leaf_01.png"></div>
+                <div><img src="leaf_02.png"></div>
+                <div><img src="leaf_03.png"></div>
+                <div><img src="leaf_04.png"></div>
+            </div>
+        </div>
+        <img src="bg.jpg" class="bg">
+        <img src="girl.png" class="girl">
+        <img src="trees.png" class="trees">
+
+        <!-- KIRISH FORMASI -->
+        <div class="form-box" id="loginBox">
+            <h2>Kirish</h2>
+            <div class="inputBox">
+                <input type="text" id="loginUsername" placeholder="Foydalanuvchi nomi">
+            </div>
+            <div class="inputBox">
+                <input type="password" id="loginPassword" placeholder="Parol">
+            </div>
+            <div class="inputBox">
+                <input type="submit" value="Kirish" onclick="doLogin()">
+            </div>
+            <div class="group">
+                <a href="#">Parolni unutdingizmi?</a>
+                <a href="#" onclick="showRegister()">Ro'yxatdan o'tish</a>
+            </div>
+        </div>
+
+        <!-- RO'YXATDAN O'TISH FORMASI -->
+        <div class="form-box hidden" id="registerBox">
+            <h2>Ro'yxatdan o'tish</h2>
+            <div class="inputBox">
+                <input type="text" id="regName" placeholder="Ismingiz">
+            </div>
+            <div class="inputBox">
+                <input type="text" id="regUser" placeholder="Foydalanuvchi nomi">
+            </div>
+            <div class="inputBox">
+                <input type="password" id="regPass" placeholder="Parol">
+            </div>
+            <div class="inputBox">
+                <input type="submit" value="Davom etish" onclick="showTerms()">
+            </div>
+            <div class="group">
+                <a href="#" onclick="showLogin()">Kirishga qaytish</a>
+            </div>
+        </div>
+
+        <!-- SHARTLAR -->
+        <div class="form-box hidden" id="termsBox">
+            <h2>Shartlar</h2>
+            <div class="terms-text">
+                <h3>Musobaqa qoidalari:</h3>
+                <p>1. Musobaqa vaqti 172 soat.</p>
+                <p>2. Yordam (Hint) faqat 3 marta beriladi.</p>
+                <p>3. Har bir bosqichdan o'tish uchun to'g'ri javobni kiritish shart.</p>
+                <p>4. Jamoaviy ishlash taqiqlanadi.</p>
+                <p>5. "START" tugmasini bosishingiz bilan vaqt ketishni boshlaydi.</p>
+            </div>
+            <div class="inputBox">
+                <input type="submit" value="START" id="btn" onclick="startGame()">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- data.js BIRINCHI bo'lishi SHART -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

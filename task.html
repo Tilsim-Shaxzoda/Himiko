@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="game.css" />
+    <title>Himiko — Topshiriq</title>
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <img src="./img/logo.png" alt="logo" class="logo" />
+        <ul>
+          <li><a href="index.html">Chiqish</a></li>
+          <li class="search"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+          <li class="hamburger"><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="vignette"></div>
+
+      <!-- Parallax layers — O'ZGARTIRILMAGAN -->
+      <img src="img/background.png"  data-speedX="0.3"   class="parallax bg-img"      data-speedY="0.38"  data-speedz="0.08"  data-rotation="0"     alt="" />
+      <img src="img/fog_7.png"       data-speedX="0.27"  class="parallax fog-7"        data-speedY="0.38"  data-speedz="0.05"  data-rotation="0"     alt="" />
+      <img src="img/mountain_10.png" data-speedX="0.195" class="parallax mountain-10"  data-speedY="0.3"   data-speedz="0.04"  data-rotation="0"     alt="" />
+      <img src="img/fog_6.png"       data-speedX="0.25"  class="parallax fog-6"        data-speedY="0.26"  data-speedz="0.02"  data-rotation="0"     alt="" />
+      <img src="img/mountain_9.png"  data-speedX="0.12"  class="parallax mountain-9"   data-speedY="0.21"  data-speedz="0.14"  data-rotation="0"     alt="" />
+      <img src="img/mountain_8.png"  data-speedX="0.22"  class="parallax mountain-8"   data-speedY="0.18"  data-speedz="0.20"  data-rotation="0"     alt="" />
+      <img src="img/fog_5.png"       data-speedX="0.21"  class="parallax fog-5"        data-speedY="0.123" data-speedz="0.31"  data-rotation="0"     alt="" />
+      <img src="img/mountain_7.png"  data-speedX="0.123" class="parallax mountain-7"   data-speedY="0.11"  data-speedz="0.12"  data-rotation="0"     alt="" />
+
+      <!-- MUSIQA BOSHQARUVI -->
+<div id="musicControl" class="music-btn paused" onclick="toggleMusic()" title="Musiqa">
+  <i class="fa-solid fa-music" id="musicIcon"></i>
+</div>
+<audio id="bgMusic" loop>
+  <source src="songs.mp3" type="audio/mpeg">
+</audio>
+      
+      
+      <!-- ══════════ GLASS CARD — TASK OYNASI ══════════ -->
+      <div class="game-positioner">
+        <div class="glass-card">
+
+          <!-- 1. TAYMER -->
+          <div class="timer-display">
+            <i class="fa-solid fa-hourglass-half timer-icon"></i>
+            <span id="countdown">172:00:00</span>
+          </div>
+
+          <!-- 2. PROGRESS BAR -->
+          <div class="progress-container">
+            <ul id="progressBar"></ul>
+          </div>
+
+          <!-- 3. VIDEO (admin qo'shsa ko'rinadi) -->
+          <div id="videoSection" class="video-section" style="display:none;">
+            <video id="taskVideo" controls playsinline>
+              Brauzeringiz videoni qo'llab-quvvatlamaydi.
+            </video>
+          </div>
+
+          <!-- 4. TASK MATNI -->
+          <div class="quest-content">
+            <h3 id="taskTitle">1-Topshiriq</h3>
+            <p id="questionText">
+              Tog'lar orasidagi sirlarni ochishga tayyormisiz? Birinchi kalit so'zni kiriting.
+            </p>
+          </div>
+
+          <!-- 5. RESURSLAR (admin qo'shsa ko'rinadi) -->
+          <div id="resourcesSection" class="resources-section" style="display:none;">
+            <h4 class="resources-title">
+              <i class="fa-solid fa-paperclip"></i> Resurslar
+            </h4>
+            <div id="resourcesList" class="resources-list"></div>
+          </div>
+
+          <!-- 6. JAVOB KIRITISH -->
+          <div class="interaction-area">
+            <input type="text" id="answerInput" placeholder="Javobni yozing..." autocomplete="off" spellcheck="false" />
+            <div class="button-group">
+              <button class="btn-hint" id="hintBtn" onclick="getHint()">
+                <i class="fa-solid fa-lightbulb"></i>
+                Yordam (<span id="hintCount">3</span>)
+              </button>
+              <button class="btn-send" onclick="checkAnswer()">
+                <i class="fa-solid fa-paper-plane"></i>
+                Yuborish
+              </button>
+            </div>
+            <p id="hintText" class="hint-msg"></p>
+          </div>
+
+        </div>
+      </div>
+      <!-- ══════════════════════════════════════════════ -->
+
+      <!-- Parallax layers — O'ZGARTIRILMAGAN -->
+      <img src="img/mountain_6.png"  data-speedX="0.11"  class="parallax mountain-6"  data-speedY="0.01"   data-speedz="0.17" data-rotation="0.003" alt="" />
+      <img src="img/fog_4.png"       data-speedX="0.16"  class="parallax fog-4"        data-speedY="0.112"  data-speedz="0.23" data-rotation="0.004" alt="" />
+      <img src="img/mountain_5.png"  data-speedX="0.09"  class="parallax mountain-5"   data-speedY="0.100"  data-speedz="0.78" data-rotation="0.01"  alt="" />
+      <img src="img/fog_3.png"       data-speedX="0.12"  class="parallax fog-3"        data-speedY="0.09"   data-speedz="0.66" data-rotation="0.03"  alt="" />
+      <img src="img/mountain_4.png"  data-speedX="0.12"  class="parallax mountain-4"   data-speedY="0.023"  data-speedz="0.98" data-rotation="0.05"  alt="" />
+      <img src="img/mountain_3.png"  data-speedX="0.07"  class="parallax mountain-3"   data-speedY="0.0123" data-speedz="0.87" data-rotation="0.08"  alt="" />
+      <img src="img/fog_2.png"       data-speedX="0.129" class="parallax fog-2"        data-speedY="0.11"   data-speedz="0.45" data-rotation="0.11"  alt="" />
+      <img src="img/mountain_2.png"  data-speedX="0.1"   class="parallax mountain-2"   data-speedY="0.02"   data-speedz="0.53" data-rotation="0.15"  alt="" />
+      <img src="img/mountain_1.png"  data-speedX="0.12"  class="parallax mountain-1"   data-speedY="0.001"  data-speedz="0.69" data-rotation="0.20"  alt="" />
+      <img src="img/sun_rays.png"    alt="" class="sun-rays" />
+      <img src="img/black_shadow.png" alt="" class="black-shadow" />
+      <img src="img/fog_1.png"       class="parallax fog-1" alt="" />
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+    <script src="data.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

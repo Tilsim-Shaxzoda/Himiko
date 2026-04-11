@@ -1,0 +1,1062 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+section .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+section .trees {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 100;
+  pointer-events: none;
+}
+
+section .girl {
+  position: absolute;
+  scale: 0.65;
+  pointer-events: none;
+  animation: animateGirl 10s linear infinite;
+}
+
+@keyframes animateGirl {
+  0% {
+    transform: translateX(calc(100% + 100vw));
+  }
+  50% {
+    transform: translateX(calc(-100% - 100vw));
+  }
+  50.01% {
+    transform: translateX(calc(-100% - 100vw)) rotateY(180deg);
+  }
+  100% {
+    transform: translateX(calc(100% + 100vw)) rotateY(180deg);
+  }
+}
+
+/* --- YANGILANGAN FORM STYLES (Login & Register uchun) --- */
+
+.form-box {
+  position: relative;
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  border: 1px solid #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+  transition: 0.5s; /* Animatsiya uchun */
+}
+
+.form-box h2 {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #8f2c24;
+  margin-bottom: 10px;
+}
+
+.form-box .inputBox {
+  position: relative;
+}
+
+/* Inputlarning dizayni */
+.form-box .inputBox input {
+  position: relative;
+  width: 100%;
+  padding: 15px 20px;
+  outline: none;
+  font-size: 1.25em;
+  color: #8f2c24;
+  border-radius: 5px;
+  background: #fff;
+  border: none;
+  margin-bottom: 30px;
+}
+
+.form-box .inputBox ::placeholder {
+  color: #8f2c24;
+}
+
+/* Tugma (Button) dizayni */
+.form-box .inputBox input[type="submit"] {
+  position: relative;
+  border: none;
+  outline: none;
+  background: #8f2c24;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: 500;
+  transition: 0.5s;
+  margin-bottom: 0; /* Tugma pastida ortiqcha joy qolmasligi uchun */
+}
+
+.form-box .inputBox input[type="submit"]:hover {
+  background: #d64c42;
+}
+
+.form-box .group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-box .group a {
+  font-size: 1.25em;
+  color: #8f2c24;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.form-box .group a:nth-child(2) {
+  text-decoration: underline;
+}
+
+/* Yashirin oynalar uchun klass */
+.hidden {
+    display: none !important;
+}
+
+/* Shartlar matni uchun stil */
+.terms-text {
+    color: #5d1914;
+    font-size: 1em;
+    line-height: 1.6;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.leaves {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.leaves .set {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.leaves .set div {
+  position: absolute;
+  display: block;
+}
+
+.leaves .set div:nth-child(1) {
+  left: 20%;
+  animation: animate 20s linear infinite;
+}
+
+.leaves .set div:nth-child(2) {
+  left: 50%;
+  animation: animate 14s linear infinite;
+}
+
+.leaves .set div:nth-child(3) {
+  left: 70%;
+  animation: animate 12s linear infinite;
+}
+
+.leaves .set div:nth-child(4) {
+  left: 5%;
+  animation: animate 15s linear infinite;
+}
+
+.leaves .set div:nth-child(5) {
+  left: 85%;
+  animation: animate 18s linear infinite;
+}
+
+.leaves .set div:nth-child(6) {
+  left: 90%;
+  animation: animate 12s linear infinite;
+}
+
+.leaves .set div:nth-child(7) {
+  left: 15%;
+  animation: animate 14s linear infinite;
+}
+
+.leaves .set div:nth-child(8) {
+  left: 60%;
+  animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    top: -10%;
+    transform: translateX(20px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-20px) rotate(45deg);
+  }
+  40% {
+    transform: translateX(-20px) rotate(90deg);
+  }
+  60% {
+    transform: translateX(20px) rotate(180deg);
+  }
+  80% {
+    transform: translateX(-20px) rotate(45deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(20px) rotate(225deg);
+  }
+}
+
+/* --- GAME CONTAINER STYLES --- */
+
+/* Asosiy oyna login oynasidan kattaroq bo'ladi */
+.game-container {
+    position: relative;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    border: 1px solid #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    width: 800px; /* Kengroq */
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    z-index: 101; /* Daraxtlardan oldinda turishi uchun */
+    .game-container {
+    /* ... eski kodlar ... */
+    
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+}
+
+/* Progress Bar */
+.progress-bar {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.progress-step {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.progress-step.completed {
+    background: #4caf50; /* Yashil - bajarilgan */
+    box-shadow: 0 0 5px #4caf50;
+}
+
+.progress-step.active {
+    background: #ff9800; /* Sariq - hozirgi */
+}
+
+/* Timer */
+.timer-box {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #8f2c24;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Task Content */
+.task-content {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    color: #5d1914;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.task-text h3 {
+    margin-bottom: 10px;
+    color: #8f2c24;
+}
+
+/* Buttons & Inputs */
+.action-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.action-area .inputBox input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    color: #8f2c24;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.send-btn {
+    flex: 2;
+    padding: 12px;
+    background: #8f2c24;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-btn:hover {
+    background: #d64c42;
+}
+
+.hint-btn {
+    flex: 1;
+    padding: 12px;
+    background: #e67e22;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.hint-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.hint-display {
+    text-align: center;
+    color: #8f2c24;
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* --- LOGIN, REGISTER & TERMS UCHUN QO'SHIMCHA --- */
+
+/* Barcha oynalar (Login, Register, Terms) bir xil stilda bo'ladi */
+.form-box {
+    position: relative;
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    border: 1px solid #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    width: 500px;
+    display: flex; /* Flex bo'lishi kerak */
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Yashirin oynalar uchun */
+.hidden {
+    display: none !important;
+}
+
+/* Shartlar matni uchun */
+.terms-text {
+    color: #5d1914;
+    font-size: 1em;
+    line-height: 1.6;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.terms-text h3 {
+    color: #8f2c24;
+    margin-bottom: 10px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@100;300;400;800&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+::selection {
+  background-color: #0b372dbb;
+}
+
+.logo {
+  width: 100px;
+}
+
+header {
+  position: absolute;
+  z-index: 999;
+  padding: 0.9rem 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header nav {
+  /* background-color: red; */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0 1.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 0.83rem;
+}
+
+.search a {
+  font-size: 1.05rem;
+  padding: 0 3rem;
+}
+
+.hamburger {
+  width: 37px;
+  height: 37px;
+  display: flex;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger i {
+  transform: scale(1.3);
+}
+
+
+
+/* .hamburger .bar {
+  position: relative;
+  width: 52%;
+  height: 1.3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.hamburger .bar::before,
+.hamburger .bar::after {
+  content: "-";
+  position: absolute;
+  left: 50%;
+  width: 60%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: 2px;
+}
+
+.hamburger .bar::before {
+  top: -4.5px;
+}
+
+.hamburger .bar::after {
+  top: 4.5px;
+} */
+
+.bg-img {
+  position: absolute;
+  width: 2800px;
+  top: calc(50% - 390px);
+  left: calc(50% + 10px);
+  z-index: 1;
+}
+
+.fog-7 {
+  z-index: 2;
+  position: absolute;
+  width: 2800px;
+  top: calc(50% - 100px);
+  left: calc(50% + 300px);
+  
+}
+
+.mountain-10 {
+  z-index: 3;
+  position: absolute;
+  width: 892px;
+  top: calc(50% - 69px);
+  left: calc(50% + 230px);
+  
+}
+
+.fog-6 {
+  z-index: 4;
+  position: absolute;
+  width: 1610px;
+  top: calc(50% - 85px);
+  left: calc(50% + 10px);
+   
+}
+
+.mountain-9 {
+  z-index: 5;
+  position: absolute;
+  width: 470px;
+  top: calc(50% - 113px);
+  left: calc(50% + 457px);
+   
+}
+
+.mountain-8 {
+  z-index: 6;
+  position: absolute;
+  width: 810px;
+  top: calc(50% + 86px);
+  left: calc(50% - 202px);
+
+}
+
+.fog-5 {
+  z-index: 7;
+  position: absolute;
+  width: 450px;
+  top: calc(50% + 160px);
+  left: calc(50% + 20px);
+  
+}
+
+.mountain-7 {
+  z-index: 8;
+  position: absolute;
+  width: 538px;
+  top: calc(50% + 123px);
+  left: calc(50% - 505px);
+  
+}
+
+.text {
+  z-index: 9;
+  position: absolute;
+  left: calc(50% - 330px);
+  top: calc(50% - 230px);
+  text-align: center;
+  text-transform: uppercase;
+  color: whitesmoke;
+  pointer-events: auto;
+}
+
+.text h2 {
+  font-weight: 100;
+  font-size: 6.5rem;
+}
+
+.text h1 {
+  font-weight: 800;
+  font-size: 8rem;
+  line-height: 0.58;
+}
+
+.mountain-6 {
+  z-index: 10;
+  position: absolute;
+  width: 480px;
+  top: calc(50% + 60px);
+  left: calc(50% + 590px);
+  
+}
+
+.fog-4 {
+  z-index: 11;
+  position: absolute;
+  width: 590px;
+  top: calc(50% + 223px);
+  left: calc(50% - 60px);
+  
+}
+
+.mountain-5 {
+  z-index: 12;
+  position: absolute;
+  width: 625px;
+  top: calc(50% + 250px);
+  left: calc(50% + 130px);
+  
+}
+
+.fog-3 {
+  z-index: 13;
+  position: absolute;
+  width: 1600px;
+  top: calc(50% + 110px);
+  left: calc(50% - 15px);
+  
+}
+
+.mountain-4 {
+  z-index: 14;
+  position: absolute;
+  width: 780px;
+  top: calc(50% + 196px);
+  left: calc(50% - 381.5px);
+  
+}
+
+.mountain-3 {
+  z-index: 15;
+  position: absolute;
+  width: 542px;
+  top: calc(50% + 196px);
+  left: calc(50% + 751.5px);
+  
+}
+
+.fog-2 {
+  z-index: 16;
+  position: absolute;
+  width: 1000px;
+  top: calc(50% + 196px);
+  left: calc(50% - 651.5px);
+  
+}
+
+.mountain-2 {
+  z-index: 18;
+  position: absolute;
+  width: 793px;
+  top: calc(50% + 196px);
+  left: calc(50% + 451.5px);
+  
+}
+
+.mountain-1 {
+  z-index: 17;
+  position: absolute;
+  width: 530px;
+  top: calc(50% + 17px);
+  left: calc(50% - 801px);
+  
+}
+
+.sun-rays {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 19;
+  width: 595px;
+  pointer-events: none;
+}
+
+.black-shadow {
+  position: absolute;
+  z-index: 20;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.fog-1 {
+  position: absolute;
+  z-index: 21;
+  width: 1600px;
+  top: calc(100% - 356px);
+  left: 50%;
+  transform: (50%, 50%);
+}
+
+@media (max-width: 1100px) {
+  .text h1 {
+    font-size: 5.8rem;
+  }
+
+  .text h2 {
+    font-size: 4.7rem;
+  }
+}
+
+@media (max-width: 725px) {
+  .text h1 {
+    position: absolute;
+    font-size: 5rem;
+    line-height: 1.1;
+    color: white;
+    left: 120px;
+    top: 200px;
+    z-index: 1;
+  }
+  .text h2 {
+    color: white;
+    position: absolute;
+    font-size: 4.1rem;
+    line-height: 1.1;
+    left: 220px;
+    top: 140px;
+  }
+
+  header nav {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    width: 75px;
+  }
+
+  header ul a {
+    font-size: 0.73rem;
+    padding: 0 0.9rem;
+  }
+
+  .search a {
+    font-size: 0.85rem;
+    padding: 0 1.8rem;
+  }
+
+  /* .hamburger {
+    padding-left: 0.9rem;
+  } */
+
+
+
+  .bar{
+    position: absolute;
+    height: 100px;
+    background-color: aquamarine;
+  }
+
+  .mountain-1 {
+    position: absolute;
+    width: 500px;
+    top: 800px;
+    left:50px ;
+    z-index: 11;
+  }
+
+  .mountain-2{
+    position: absolute;
+    width: 500px;
+    top: 800px;
+    left:50px ;
+    z-index: 10;
+  }
+
+  .fog-7 {
+    z-index: 2;
+    position: absolute;
+    width: 900px;
+    top: 700px;
+    left:500px;  
+  }
+
+  .mountain-9{
+    z-index: 4;
+    position: absolute;
+    width: 500px;
+    top: 700px;
+    left: 500px;
+  }
+
+  .mountain-10{
+    position: absolute;
+    z-index: 5;
+    width: 500px;
+    top: 800px;
+    left:100px ;
+  }
+
+  .mountain-8{
+    position:absolute;
+    z-index: 6;
+    height: 800px;
+    top: 700px;
+    left: 300px;
+  }
+
+  .mountain-7{
+    position: absolute;
+    z-index: 7;
+    top: 600px;
+    left: 700px;
+    height: 700px;
+  }
+
+  .fog-1 {
+    position: absolute;
+    z-index: 21;
+    width: 1600px;
+    top: calc(100% - 356px);
+    left: 50%;
+    transform: (50%, 50%);
+  }
+
+  .fog-2 {
+    z-index: 16;
+    position: absolute;
+    width: 1000px;
+    top: calc(50% + 196px);
+    left: calc(50% - 651.5px);
+    
+  }
+
+  .fog-4 {
+    z-index: 11;
+    position: absolute;
+    width: 590px;
+    top: calc(50% + 223px);
+    left: calc(50% - 60px);
+    
+  }
+
+  .mountain-4{
+    z-index: 4;
+    position: absolute;
+    top: 600px;
+    left: 100px;
+    height: 600px;
+  }
+
+}
+
+/* --- 3D FON VA O'YIN OYNASINI BIRLASHTIRISH --- */
+
+/* O'yin oynasini ekranning o'rtasiga, tog'larning ustiga joylash */
+.game-overlay {
+    position: absolute;
+    top: 50%; /* Markazga */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000; /* Eng ustida turishi shart */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* Bu oyna tog'larning qimirlashiga xalaqit bermasligi uchun */
+}
+
+/* Lekin ichidagi tugmalarni bosish mumkin bo'lishi kerak */
+.game-container {
+    pointer-events: auto; 
+    background: rgba(20, 20, 20, 0.6); /* To'qroq fon, tog'larga moslashish uchun */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Matnlar rangini to'g'irlash */
+.timer-box {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    background: transparent;
+}
+
+.task-text h3 {
+    color: #ff9800; /* Sariq rang, yaxshi ko'rinadi */
+}
+
+.task-text {
+    color: #eee;
+}
+
+/* --- 3D TOG'LAR UCHUN MUHIM CSS --- */
+
+.bg-img {
+    width: 110%; /* Orqa fon biroz kattaroq */
+    z-index: 1;
+}
+
+/* O'yin oynasini tog'larning ustiga chiqarish */
+.game-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000 !important; /* Eng tepada turishi SHART */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.game-container {
+    pointer-events: auto;
+    /* Biroz shaffof qora fon, oq yozuvlar ko'rinishi uchun */
+    background: rgba(40, 40, 40, 0.65); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Matnlarni oq qilish (chunki orqa fon qora tog') */
+.timer-box, .task-text h3, .task-text p, .hint-display {
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+/* =========================================
+   3D TOG'LARNI TUZATISH (FIX)
+========================================= */
+
+/* 1. Asosiy konteyner butun ekranni egallashi shart */
+main {
+    position: relative;
+    width: 100vw;  /* Ekranning to'liq eni */
+    height: 100vh; /* Ekranning to'liq bo'yi */
+    overflow: hidden; /* Ekrandan chiqib ketgan qismlar ko'rinmasin */
+    background-color: #0a0a0a; /* Rasm yuklanguncha juda to'q fon */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Qora soya effekti (chetlari qorayishi) */
+.vignette {
+    position: absolute;
+    z-index: 100; /* Hamma tog'larning ustida */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+}
+
+/* 3. BARCHA PARALLAX RASMLARNI MARKAZLASHTIRISH (Eng muhim qism) */
+.parallax {
+    position: absolute !important; /* Keskin buyruq: joylashuv absolyut bo'lsin */
+    top: 50% !important;
+    left: 50% !important;
+    /* Rasmni o'z markazidan ekran markaziga surish: */
+    transform: translate(-50%, -50%) !important; 
+    pointer-events: none; /* Sichqoncha rasmlarga tegmasin */
+    
+    /* Rasmlar ekranni to'liq qoplashini ta'minlash: */
+    min-width: 100vw;  /* Minimal eni ekran enicha bo'lsin */
+    min-height: 100vh; /* Minimal bo'yi ekran bo'yicha bo'lsin */
+    width: auto;       /* Asl nisbatni saqlash */
+    height: auto;
+    object-fit: cover; /* Agar rasm kichik bo'lsa, cho'zib to'ldirsin */
+}
+
+/* 4. Orqa fon rasmini biroz kattaroq qilish (harakatlanish uchun joy qolishi kerak) */
+.bg-img {
+    min-width: 115vw;
+    min-height: 115vh;
+}
+
+/* 5. Quyosh nurlari va old fon elementlari */
+.sun-rays, .black-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 200; /* Eng oldinda */
+    pointer-events: none;
+}
+
+/* =========================================
+   O'YIN INTERFEYSINI TOG'LAR USTIGA CHIQARISH
+========================================= */
+.game-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Tog'lardan ancha balandda */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.game-container {
+    pointer-events: auto;
+    /* O'yin oynasini tog'lar foniga moslash (qoramtir shisha) */
+    background: rgba(20, 20, 20, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Matn ranglarini oq qilish */
+.timer-box, .task-text h3, .task-text p, .hint-display {
+    color: #eee;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.task-text h3 {
+    color: #ffb74d; /* Sarlavha uchun tillarang */
+}
