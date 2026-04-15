@@ -340,3 +340,105 @@ body {
   padding: 12px 14px;
   margin-bottom: 10px;
 }
+
+/* ── RESPONSIVE — MOBIL ── */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-w: 0px;
+  }
+
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 12px;
+    gap: 8px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-logo {
+    width: 100%;
+    padding: 0 0 10px;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex: 1;
+    gap: 6px;
+  }
+
+  .nav-btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.78em;
+    padding: 8px 10px;
+  }
+
+  .sidebar-logout {
+    width: auto;
+    padding: 8px 14px;
+    font-size: 0.78em;
+  }
+
+  .admin-main {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .page-header h1 {
+    font-size: 1.2em;
+  }
+
+  .task-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .task-card-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .table-wrapper {
+    font-size: 0.8em;
+  }
+
+  .users-table thead th,
+  .users-table tbody td {
+    padding: 10px 12px;
+  }
+
+  .modal-card {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 16px;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .modal-header,
+  .modal-footer {
+    padding: 14px 16px;
+  }
+
+  .form-row.two-col {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

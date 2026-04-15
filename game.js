@@ -85,6 +85,26 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("answerInput").addEventListener("keydown", e => {
     if (e.key === "Enter") checkAnswer();
   });
+const card = document.querySelector(".glass-card");
+
+card.addEventListener("wheel", (e) => {
+  const scrollTop = card.scrollTop;
+  const atTop = scrollTop === 0;
+
+  if (atTop && e.deltaY < 0) {
+    // Yuqoriga scroll — cho'zish
+    e.preventDefault();
+    card.style.transform = "scaleY(1.045) translateY(-10px)";
+    card.style.borderRadius = "30px 30px 20px 20px";
+
+    clearTimeout(card._stretchTimeout);
+    card._stretchTimeout = setTimeout(() => {
+      card.style.transform = "";
+      card.style.borderRadius = "";
+    }, 400);
+  }
+}, { passive: false });
+
 });
 
 // ── TASK YUKLASH ──
