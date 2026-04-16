@@ -98,31 +98,29 @@ main {
 .game-positioner {
   position: fixed;
   z-index: 150;
-  top: 0; left: 0;
-  width: 100%; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px 16px;
-  pointer-events: none;
+  align-items: flex-start;
+  padding: 30px 16px 40px;
+  overflow-y: auto;
 }
 
 /* ══════════════════════════════════════
    GLASS CARD — asosiy oyna
    ══════════════════════════════════════ */
 .glass-card {
-  pointer-events: auto;
-  width: 460px;
+  width: 440px;
   max-width: 96vw;
-
-  /* Ekran balandligiga moslashadi, lekin to'liq sig'ishi uchun: */
-  max-height: calc(100vh - 40px);
-  overflow-y: auto;
+  height: auto;
+  max-height: none;
+  overflow-y: visible;
   overflow-x: hidden;
-
   padding: 32px 28px;
   border-radius: 36px;
-
   background: linear-gradient(
     145deg,
     rgba(255, 255, 255, 0.55) 0%,
@@ -131,27 +129,17 @@ main {
   );
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
-
   border: 1.5px solid rgba(255, 255, 255, 0.75);
   border-bottom-color: rgba(255, 255, 255, 0.3);
-  border-right-color:  rgba(255, 255, 255, 0.3);
-
+  border-right-color: rgba(255, 255, 255, 0.3);
   box-shadow:
     0 8px 32px rgba(100, 120, 220, 0.18),
     0 2px 8px rgba(255, 255, 255, 0.5) inset;
-
   display: flex;
   flex-direction: column;
   gap: 18px;
-
-  /* Scroll effekti uchun */
-  transform-origin: top center;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              border-radius 0.4s ease;
-
-  /* Ingichka scrollbar */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(150, 160, 255, 0.3) transparent;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-radius 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .glass-card::-webkit-scrollbar { width: 4px; }
 .glass-card::-webkit-scrollbar-thumb { background: rgba(150,160,255,0.3); border-radius: 4px; }
@@ -504,5 +492,49 @@ main {
   .music-btn {
     bottom: 14px !important; right: 14px !important;
     width: 42px !important; height: 42px !important;
+  }
+}
+/* ── PORTFOLIO TUGMASI ── */
+.portfolio-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.6);
+  animation: portfolio-glow 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.portfolio-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.portfolio-btn:hover {
+  transform: scale(1.12);
+}
+
+@keyframes portfolio-glow {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7), 0 0 10px rgba(255,215,0,0.3); }
+  50%  { box-shadow: 0 0 0 8px rgba(255, 215, 0, 0), 0 0 20px rgba(255,215,0,0.6); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7), 0 0 10px rgba(255,215,0,0.3); }
+}
+
+@media (max-width: 768px) {
+  .portfolio-btn {
+    top: 16px !important;
+    right: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
   }
 }

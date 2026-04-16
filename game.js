@@ -85,25 +85,59 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("answerInput").addEventListener("keydown", e => {
     if (e.key === "Enter") checkAnswer();
   });
+// ── RUBBER SCROLL EFFEKTI ──
 const card = document.querySelector(".glass-card");
+const positioner = document.querySelector(".game-positioner");
 
-card.addEventListener("wheel", (e) => {
-  const scrollTop = card.scrollTop;
-  const atTop = scrollTop === 0;
+let isAnimating = false;
+let lastScrollY = 0;
+let rafId = null;
 
-  if (atTop && e.deltaY < 0) {
-    // Yuqoriga scroll — cho'zish
-    e.preventDefault();
-    card.style.transform = "scaleY(1.045) translateY(-10px)";
-    card.style.borderRadius = "30px 30px 20px 20px";
+function applyRubber(scrollEl, target) {
+  const scrollTop = scrollEl.scrollTop;
+  const maxScroll = scrollEl.scrollHeight - scrollEl.clientHeight;
+  const diff = scrollTop - lastScrollY;
+  lastScrollY = scrollTop;
 
-    clearTimeout(card._stretchTimeout);
-    card._stretchTimeout = setTimeout(() => {
-      card.style.transform = "";
-      card.style.borderRadius = "";
-    }, 400);
+  // Pastga scroll — card pastki qismi cho'zilsin
+  if (scrollTop > 20 && diff > 0) {
+    const stretch = Math.min(diff * 0.04, 0.06);
+    target.style.transform = "scaleY(" + (1 + stretch) + ") translateY(-" + (stretch * 30) + "px)";
+    target.style.transformOrigin = "top center";
+    target.style.borderRadius = "28px 28px 40px 40px";
   }
-}, { passive: false });
+  // Yuqoriga qaytganda
+  else if (scrollTop < 10 && diff < 0) {
+    const stretch = Math.min(Math.abs(diff) * 0.04, 0.05);
+    target.style.transform = "scaleY(" + (1 + stretch) + ") translateY(-" + (stretch * 20) + "px)";
+    target.style.transformOrigin = "bottom center";
+    target.style.borderRadius = "40px 40px 28px 28px";
+  }
+  // Normal holat
+  else {
+    target.style.transform = "";
+    target.style.borderRadius = "";
+  }
+
+  // Spring — normal holatga qaytish
+  if (rafId) cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(() => {
+    setTimeout(() => {
+      target.style.transition = "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.5s cubic-bezier(0.22, 1, 0.36, 1)";
+      target.style.transform = "";
+      target.style.borderRadius = "";
+      setTimeout(() => {
+        target.style.transition = "";
+      }, 500);
+    }, 80);
+  });
+}
+
+if (positioner && card) {
+  positioner.addEventListener("scroll", () => {
+    applyRubber(positioner, card);
+  });
+}
 
 });
 
